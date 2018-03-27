@@ -1,0 +1,77 @@
+--a) 
+apply' :: (a -> b) -> a -> b
+apply' f x = f x
+--En Haskell se llama ($)
+--b) 
+twice :: (a -> a) -> a -> a
+twice   f x     =   f (f x)
+--c) 
+--flip :: (a -> b -> c) -> b -> a -> c
+----d) 
+--(.) :: (b -> c) -> (a -> b) -> (a -> c)
+--
+----e) 
+--curry :: ((a,b) -> c) -> a -> b -> c
+----f ) 
+--uncurry :: (a -> b -> c) -> (a,b) -> c
+----g) 
+--map :: (a -> b) -> [a] -> [b]
+----h) 
+--filter :: (a -> Bool) -> [a] -> [a]
+----i) 
+--any :: (a -> Bool) -> [a] -> Bool
+--
+--all :: (a -> Bool) -> [a] -> Bool
+----j) 
+--maybe :: b -> (a -> b) -> Maybe a -> b
+----k) 
+--either :: (a -> c) -> (b -> c) -> Either a b -> c
+----l) 
+--find :: (a -> Bool) -> [a] -> Maybe a
+----m) 
+--partition :: (a -> Bool) -> [a] -> ([a], [a])
+----n) 
+--nubBy :: (a -> a -> Bool) -> [a] -> [a]
+----ñ) 
+--deleteBy :: (a -> a -> Bool) -> a -> [a] -> [a]
+----o) 
+--groupBy :: (a -> a -> Bool) -> [a] -> [[a]]
+----p) 
+--concatMap :: (a -> [b]) -> [a] -> [b]
+----q) 
+--until :: (a -> Bool) -> (a -> a) -> a -> a
+----r ) 
+--takeWhile :: (a -> Bool) -> [a] -> [a]
+----s) 
+--dropWhile :: (a -> Bool) -> [a] -> [a]
+----t) 
+--span :: (a -> Bool) -> [a] -> ([a],[a])
+--break :: (a -> Bool) -> [a] -> ([a],[a])
+----u) 
+--zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+----v) 
+----zipApply :: [(a -> b)] -> [a] -> [b]
+----
+----w) 
+--index :: [a] -> [(Int,a)]
+----x ) 
+--applyN :: Int -> (a -> a) -> a -> a
+----y)
+----iterate f x == [f x, f (f x), f (f (f x)), ...] 
+--iterate :: (a -> a) -> a -> [a]
+--
+----z ) 
+--findIndex :: (a -> Bool) -> [a] -> Maybe Int
+
+
+--2. Inidicar el resultado de las siguientes expresiones:
+--a) id id
+--b) id id x
+--c) (*2) . (+2) $ 0
+--d) flip (-) 2 3
+--e) all (==True) $ map (const True) [1..5]
+--f ) map (map (+1)) [[1..5], [6..10]]
+--g) map ((*2) . (+1)) [1..5]
+--h) iterate (+1) 0
+--i) maybe 0 (const 1) $ Just 1
+--j) until ((==2) . length) (map (+1)) [[1], [2], [3], [4,5]]
