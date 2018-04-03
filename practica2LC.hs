@@ -6,72 +6,156 @@ apply' f x = f x
 twice :: (a -> a) -> a -> a
 twice   f x     =   f (f x)
 --c) 
---flip :: (a -> b -> c) -> b -> a -> c
-----d) 
---(.) :: (b -> c) -> (a -> b) -> (a -> c)
---
-----e) 
---curry :: ((a,b) -> c) -> a -> b -> c
-----f ) 
---uncurry :: (a -> b -> c) -> (a,b) -> c
-----g) 
---map :: (a -> b) -> [a] -> [b]
-----h) 
---filter :: (a -> Bool) -> [a] -> [a]
-----i) 
---any :: (a -> Bool) -> [a] -> Bool
---
---all :: (a -> Bool) -> [a] -> Bool
-----j) 
---maybe :: b -> (a -> b) -> Maybe a -> b
-----k) 
---either :: (a -> c) -> (b -> c) -> Either a b -> c
+flip :: (a -> b -> c) -> b -> a -> c
+flip f x y = f y x 
+---d) 
+(.) :: (b -> c) -> (a -> b) -> (a -> c)
+(.) f g a  = f(g a)
+--e) 
+curry :: ((a,b) -> c) -> a -> b -> c
+curry f a b = f(a,b)
+--f ) 
+uncurry :: (a -> b -> c) -> (a,b) -> c
+uncurry f (a,b) = f a b
+--g) 
+map' :: (a -> b) -> [a] -> [b]
+map' f (x:xs) = f x : map f xs
+--h) 
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' f [] = []
+filter' f (a:as) = if f a then a:filter f as else filter f as
+--i) 
+any' :: (a -> Bool) -> [a] -> Bool
+any' f [] = False
+any' f (a:as) = f a || any f as
+
+esSiete:: Int->Bool
+esSiete x = x == 7
+
+all' :: (a -> Bool) -> [a] -> Bool
+all' f [] = False
+all' f (a:as) = f a && all' f as
+--j) 
+maibe :: b -> (a -> b) -> Maybe a -> b
+maibe b f Nothing = b
+maibe  b f (Just a) = f a
+----k) chequear
+--either' :: (a -> c) -> (b -> c) -> Either a b -> c
+--either' f g (Right a )    =   f  a 
+--either' f g (Left b )     =   g  b
 ----l) 
---find :: (a -> Bool) -> [a] -> Maybe a
+find' :: (a -> Bool) -> [a] -> Maybe a
+find' f []   =   Nothing
+find' f (x:xs)   =   if (f x) then (Just x ) else find' f xs
 ----m) 
---partition :: (a -> Bool) -> [a] -> ([a], [a])
+partition :: (a -> Bool) -> [a] -> ([a], [a])
+partition f []  =   ([],[])
+partition f (x:xs)  =   if (f x) then (x:fst(partition f xs),snd(partition f xs)) else (fst(partition f xs ),x:snd(partition f xs))
 ----n) 
---nubBy :: (a -> a -> Bool) -> [a] -> [a]
+nubBy :: (a -> a -> Bool) -> [a] -> [a]
+nubBy f []  =   []
+nubBy f  (x:xs) = if (elem_by f x xs) then  x:(nubBy f xs) else nubBy f xs
+
+nub:: (Eq a) => [a] -> [a]
+nub []  = []
+nub (x:xs) = if elem x xs then nub xs else x: nub xs  
+  
+elem_by :: (a -> a -> Bool) -> a -> [a] -> Bool
+elem_by _  _ []         =  False
+elem_by eq y (x:xs)     =  x `eq` y || elem_by eq y xs 
 ----ñ) 
---deleteBy :: (a -> a -> Bool) -> a -> [a] -> [a]
+deleteBy' :: (a -> a -> Bool) -> a -> [a] -> [a]
+deleteBy' f a [] = []
+deleteBy' f a (x:xs) = if f a x then xs else x : deleteBy' f a xs
+--deleteBy' (<=) 4 [1..10]
+
 ----o) 
---groupBy :: (a -> a -> Bool) -> [a] -> [[a]]
+groupBy :: (a -> a -> Bool) -> [a] -> [[a]]
+groupBy f [] = []
+groupBy f [x] = [[x]]
+groupBy f (x:xs) =  let (a:as) = groupBy f xs in if  (f x  (head a))  then (x:a):as else [x]:a:as
+--groupBy (\x y -> (x*y `mod` 3) == 0) [1,2,3,4,5,6,7,8,9]
+
 ----p) 
---concatMap :: (a -> [b]) -> [a] -> [b]
-----q) 
---until :: (a -> Bool) -> (a -> a) -> a -> a
+concatMap' :: (a -> [b]) -> [a] -> [b]
+concatMap' f [] = [] 
+concatMap' f (x:xs) = f x ++ concatMap f xs 
+
+----q) chequear
+until' :: (a -> Bool) -> (a -> a) -> a -> a
+until' f g a = if (f a) then a else until' f g (g a) 
+
 ----r ) 
---takeWhile :: (a -> Bool) -> [a] -> [a]
+takeWhile' :: (a -> Bool) -> [a] -> [a]
+takeWhile' f [] = []
+takeWhile' f (x:xs) = if (f x) then x:takeWhile' f xs else takeWhile' f xs 
+
 ----s) 
---dropWhile :: (a -> Bool) -> [a] -> [a]
+dropWhile' :: (a -> Bool) -> [a] -> [a]
+dropWhile' f [] = []
+dropWhile' f (x:xs) = if (f x) then dropWhile' f xs else xs
+--dropWhile (< 9) [1,2,3]
+--dropWhile' (< 3) [1,2,3,4,5,1,2,3]
 ----t) 
---span :: (a -> Bool) -> [a] -> ([a],[a])
---break :: (a -> Bool) -> [a] -> ([a],[a])
+span' :: (a -> Bool) -> [a] -> ([a],[a])
+span' f [] = ([],[])
+span' f (x:xs) = if (f x) then (x:fst(span' f xs),snd(span' f xs)) else ([],(x:xs))
+
+--span (< 3) [1,2,3,4,1,2,3,4] == ([1,2],[3,4,1,2,3,4])
+--span (< 9) [1,2,3] == ([1,2,3],[])
+--span (< 0) [1,2,3] == ([],[1,2,3])
+
+break' :: (a -> Bool) -> [a] -> ([a],[a])
+break' f [] = ([],[])
+break' f (x:xs) = let (zs,ws) = break' f xs in if not (f x) then (x:zs,ws) else ([],(x:xs))
+
+-- break' (> 3) [1,2,3,4,1,2,3,4] == ([1,2,3],[4,1,2,3,4]) 
+-- break' (< 9) [1,2,3] == ([],[1,2,3]) 
+-- break' (> 9) [1,2,3] == ([1,2,3],[])
 ----u) 
---zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
-----v) 
-----zipApply :: [(a -> b)] -> [a] -> [b]
-----
-----w) 
---index :: [a] -> [(Int,a)]
-----x ) 
---applyN :: Int -> (a -> a) -> a -> a
-----y)
-----iterate f x == [f x, f (f x), f (f (f x)), ...] 
---iterate :: (a -> a) -> a -> [a]
+zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith' f [] _     = []
+zipWith' f _ []     = []
+zipWith' f (x:xs) (y:ys) = (f x y) : zipWith' f xs ys
+
+-- zipWith' (+) [1,2,3] [3,2,1]    
+
+--v) 
+zipApply :: [(a -> b)] -> [a] -> [b]
+zipApply [] _ = []  
+zipApply (f:fs) (x:xs) = (f x) : zipApply fs xs
+---- zipApply [(> 3)] [1,2,3,4,5,6,7,8,9]
+--w) 
+index' :: [a] -> [(Int,a)]
+index' [] = []
+index' (x:xs) = (0,x): sumar1aLaLista (index' xs)
+
+sumar1aLaLista :: [(Int,a)] -> [(Int,a)]
+sumar1aLaLista [] = []
+sumar1aLaLista (x:xs) = sumarAlPar x : sumar1aLaLista xs
+
+sumarAlPar :: (Int,a) -> (Int,a)
+sumarAlPar (x,y) = (1+x,y)
+
+--x ) 
+
+applyN :: Int -> (a -> a) -> a -> a
+applyN 0 f x = x
+applyN n f x = f (applyN (n-1) f x)
+
+--y)
+--iterate f x == [f x, f (f x), f (f (f x)), ...] 
+
+iteratee :: (a -> a) -> a -> [a]
+iteratee f x = (iteratee f x) 
+
 --
-----z ) 
---findIndex :: (a -> Bool) -> [a] -> Maybe Int
+--z ) 
+findIndex :: (a -> Bool) -> [a] -> Maybe Int
+findIndex f [] = Nothing
+findIndex f (x:xs) = if (f x) then Just 0 else Just (sumJust(findIndex f xs) )
 
+sumJust :: Maybe Int -> Int
+sumJust (Just n) = 1 + n
+sumJust Nothing = 0
 
---2. Inidicar el resultado de las siguientes expresiones:
---a) id id
---b) id id x
---c) (*2) . (+2) $ 0
---d) flip (-) 2 3
---e) all (==True) $ map (const True) [1..5]
---f ) map (map (+1)) [[1..5], [6..10]]
---g) map ((*2) . (+1)) [1..5]
---h) iterate (+1) 0
---i) maybe 0 (const 1) $ Just 1
---j) until ((==2) . length) (map (+1)) [[1], [2], [3], [4,5]]
