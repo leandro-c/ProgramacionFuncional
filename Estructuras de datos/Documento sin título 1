@@ -1,0 +1,1 @@
+data Expresion = Suma Int Expresion | Mult Int Expresion | Num Int

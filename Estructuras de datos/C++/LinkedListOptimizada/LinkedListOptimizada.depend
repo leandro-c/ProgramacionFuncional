@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1478354609 source:/home/alumno/Escritorio/LinkedListOptimizada/list2.cpp
+	"list2.h"
+
+1478357905 /home/alumno/Escritorio/LinkedListOptimizada/list2.h
+	<iostream>
+
+1478357997 source:/home/alumno/Escritorio/LinkedListOptimizada/main.cpp
+	<iostream>
+	"Usuario.h"
+
+1478357984 source:/home/alumno/Escritorio/LinkedListOptimizada/Usuario.cpp
+	"Usuario.h"
+	<iostream>
+
+1478357939 /home/alumno/Escritorio/LinkedListOptimizada/Usuario.h
+	"list2.h"
+
+1478354608 source:/home/leacasarin/Escritorio/Estructuras de datos/C++/LinkedListOptimizada/list2.cpp
+	"list2.h"
+
+1478357904 /home/leacasarin/Escritorio/Estructuras de datos/C++/LinkedListOptimizada/list2.h
+	<iostream>
+
+1478970843 source:/home/leacasarin/Escritorio/Estructuras de datos/C++/LinkedListOptimizada/listIterator.cpp
+	"listIterator.h"
+
+1478969822 /home/leacasarin/Escritorio/Estructuras de datos/C++/LinkedListOptimizada/listIterator.h
+	<iostream>
+
+1478971207 source:/home/leacasarin/Escritorio/Estructuras de datos/C++/LinkedListOptimizada/main.cpp
+	<iostream>
+	"listIterator.h"
+
+1478358334 source:/home/leacasarin/Escritorio/Estructuras de datos/C++/LinkedListOptimizada/Usuario.cpp
+	"Usuario.h"
+	<iostream>
+
+1478357938 /home/leacasarin/Escritorio/Estructuras de datos/C++/LinkedListOptimizada/Usuario.h
+	"list2.h"
+

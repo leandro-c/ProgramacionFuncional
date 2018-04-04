@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1400631400 source:c:\users\sawa\desktop\new linked lists\destructivelinkedlists\testinglists.cpp
+	<stdio.h>
+	"..\Prelude\Prelude.h"
+	"TestingLists.h"
+
+1400630534 c:\users\sawa\desktop\new linked lists\prelude\prelude.h
+	<iostream>
+	<stdlib.h>
+
+1324159217 c:\users\sawa\desktop\new linked lists\destructivelinkedlists\testinglists.h
+	"..\Prelude\Prelude.h"
+	"DestructiveLinkedLists.h"
+
+1400631578 c:\users\sawa\desktop\new linked lists\destructivelinkedlists\destructivelinkedlists.h
+	<iostream>
+	"..\Prelude\Prelude.h"
+
+1400631814 source:c:\users\sawa\desktop\new linked lists\destructivelinkedlists\main.cpp
+	<iostream>
+	"TestingLists.h"
+
+1400631775 source:c:\users\sawa\desktop\new linked lists\destructivelinkedlists\destructivelinkedlists.cpp
+	"DestructiveLinkedLists.h"
+
+1400630580 source:c:\users\sawa\desktop\new linked lists\prelude\prelude.cpp
+	"Prelude.h"
+
+1400674817 source:c:\documents and settings\fidel\escritorio\svn-tpi\materias\estrd\dev\codigo\linkedlists\destructivelinkedlists\testinglists.cpp
+	<stdio.h>
+	"..\Prelude\Prelude.h"
+	"TestingLists.h"
+
+1400674804 c:\documents and settings\fidel\escritorio\svn-tpi\materias\estrd\dev\codigo\linkedlists\prelude\prelude.h
+	<iostream>
+	<stdlib.h>
+
+1320755943 c:\documents and settings\fidel\escritorio\svn-tpi\materias\estrd\dev\codigo\linkedlists\destructivelinkedlists\testinglists.h
+	"..\Prelude\Prelude.h"
+	"DestructiveLinkedLists.h"
+
+1400674817 c:\documents and settings\fidel\escritorio\svn-tpi\materias\estrd\dev\codigo\linkedlists\destructivelinkedlists\destructivelinkedlists.h
+	<iostream>
+	"..\Prelude\Prelude.h"
+
+1400674804 source:c:\documents and settings\fidel\escritorio\svn-tpi\materias\estrd\dev\codigo\linkedlists\prelude\prelude.cpp
+	"Prelude.h"
+
+1400674816 source:c:\documents and settings\fidel\escritorio\svn-tpi\materias\estrd\dev\codigo\linkedlists\destructivelinkedlists\destructivelinkedlists.cpp
+	"DestructiveLinkedLists.h"
+
+1400675753 source:c:\documents and settings\fidel\escritorio\svn-tpi\materias\estrd\dev\codigo\linkedlists\destructivelinkedlists\main.cpp
+	<iostream>
+	"TestingLists.h"
+

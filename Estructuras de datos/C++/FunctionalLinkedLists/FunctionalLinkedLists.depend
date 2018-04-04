@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1400632242 source:c:\users\sawa\desktop\new linked lists\functionallinkedlists\testinglists.cpp
+	<stdio.h>
+	"..\Prelude\Prelude.h"
+	"TestingLists.h"
+
+1400630534 c:\users\sawa\desktop\new linked lists\prelude\prelude.h
+	<iostream>
+	<stdlib.h>
+
+1400632006 c:\users\sawa\desktop\new linked lists\functionallinkedlists\testinglists.h
+	"..\Prelude\Prelude.h"
+	"FunctionalLinkedLists.h"
+
+1400631996 c:\users\sawa\desktop\new linked lists\functionallinkedlists\functionallinkedlists.h
+	"..\Prelude\Prelude.h"
+
+1324159217 source:c:\users\sawa\desktop\new linked lists\functionallinkedlists\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	"TestingLists.h"
+
+1400632259 source:c:\users\sawa\desktop\new linked lists\functionallinkedlists\functionallinkedlists.cpp
+	<stdio.h>
+	<malloc.h>
+	"..\Prelude\Prelude.h"
+	"FunctionalLinkedLists.h"
+
+1400630580 source:c:\users\sawa\desktop\new linked lists\prelude\prelude.cpp
+	"Prelude.h"
+

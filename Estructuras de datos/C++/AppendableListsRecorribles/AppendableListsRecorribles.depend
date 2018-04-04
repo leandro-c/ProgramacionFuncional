@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1400633413 source:c:\users\sawa\desktop\new linked lists\appendablelistsrecorribles\testinglists.cpp
+	<stdio.h>
+	"..\Prelude\Prelude.h"
+	"TestingLists.h"
+
+1400630534 c:\users\sawa\desktop\new linked lists\prelude\prelude.h
+	<iostream>
+	<stdlib.h>
+
+1400633443 c:\users\sawa\desktop\new linked lists\appendablelistsrecorribles\testinglists.h
+	"..\Prelude\Prelude.h"
+	"AppendableListsRecorribles.h"
+
+1400633124 c:\users\sawa\desktop\new linked lists\appendablelistsrecorribles\appendablelistsrecorribles.h
+	"..\Prelude\Prelude.h"
+
+1400633336 source:c:\users\sawa\desktop\new linked lists\appendablelistsrecorribles\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	"TestingLists.h"
+
+1400630580 source:c:\users\sawa\desktop\new linked lists\prelude\prelude.cpp
+	"Prelude.h"
+
+1400633470 source:c:\users\sawa\desktop\new linked lists\appendablelistsrecorribles\appendablelistsrecorribles.cpp
+	<stdio.h>
+	<malloc.h>
+	"..\Prelude\Prelude.h"
+	"AppendableListsRecorribles.h"
+
