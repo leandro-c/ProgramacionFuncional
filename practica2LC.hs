@@ -159,3 +159,47 @@ sumJust :: Maybe Int -> Int
 sumJust (Just n) = 1 + n
 sumJust Nothing = 0
 
+--------------------------
+--2.1 AAAAALTO ORDEN AMEO
+--------------------------
+
+isNothing :: Maybe a -> Bool
+isNothing Nothing = True
+isNothing _ = False
+
+elem':: Eq a => a -> [a] -> Bool  
+elem' = (.) not . (.) isNothing . find' . (==) 
+
+notElem :: Eq a => a -> [a] -> Bool
+notElem  = (.) not . (.) isNothing . find' . (/=)
+
+and' :: [Bool] -> Bool  
+and' = all' id 
+
+or' :: [Bool] -> Bool
+or' = any' id
+
+subset :: Eq a => [a] -> [a] -> Bool
+subset = flip (all . flip elem)
+
+applyN :: Int -> (a -> a) -> a -> a
+applyN 0 f = id
+applyN n f =  (.) f (applyN (n-1) f)
+--concat
+--zip
+--unzip
+--replicate
+--inits 
+--isSuffixOf
+--elemIndex
+--index
+group:: Eq a => [a] -> [[a]]
+group = groupBy (==)
+--delete
+--twice
+--partition
+--nub
+--span
+--break (llamando a span)
+--zipApply
+
