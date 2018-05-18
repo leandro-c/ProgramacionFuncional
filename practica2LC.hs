@@ -128,14 +128,14 @@ zipApply (f:fs) (x:xs) = (f x) : zipApply fs xs
 --w) 
 index' :: [a] -> [(Int,a)]
 index' [] = []
-index' (x:xs) = (0,x): sumar1aLaLista (index' xs)
+index' (x:xs) = (0,x): sumToList (index' xs)
 
-sumar1aLaLista :: [(Int,a)] -> [(Int,a)]
-sumar1aLaLista [] = []
-sumar1aLaLista (x:xs) = sumarAlPar x : sumar1aLaLista xs
+sumToList :: [(Int,a)] -> [(Int,a)]
+sumToList [] = []
+sumToList (x:xs) = sumarPair x : sumToList xs
 
-sumarAlPar :: (Int,a) -> (Int,a)
-sumarAlPar (x,y) = (1+x,y)
+sumarPair :: (Int,a) -> (Int,a)
+sumarPair (x,y) = (1+x,y)
 
 --x ) 
 
@@ -185,21 +185,42 @@ subset = flip (all . flip elem)
 applyN :: Int -> (a -> a) -> a -> a
 applyN 0 f = id
 applyN n f =  (.) f (applyN (n-1) f)
---concat
---zip
+
+(+++) :: [a] -> [a] -> [a]
+(+++) [] [] = []
+(+++) [] y = y
+(+++) (x:xs) ys = x:(+++)xs ys
+
+concat' :: [[a]] -> [a]
+concat' [] = []
+concat' (x:xs) = x (+++) concat' xs
+
+zip' :: [a] -> [b] -> [(a,b)] 
+zip' = zipWith' (,) 
 --unzip
---replicate
+replicate':: Int -> a -> [a]
+replicate' n = take n . repeat
 --inits 
 --isSuffixOf
---elemIndex
---index
+elem':: Eq a => a -> [a] -> Bool
+elem' x  =  any' (x==)
+
+elemIndex' :: Eq a => a -> [a] -> Maybe Int
+elemIndex' a = findIndex' (==a)
+
 group:: Eq a => [a] -> [[a]]
 group = groupBy (==)
---delete
---twice
---partition
---nub
---span
---break (llamando a span)
---zipApply
 
+delete :: (a -> a -> Bool) -> a -> [a] -> [a]
+delete = deleteBy' (==)
+
+nub:: [a]->[a]
+nub = nubBy (==)
+
+--zipApply = zipWith apply
+
+--index = zipWith (\xy -> (x,y))[0 ..] xs
+
+--findIndex::(a->Bool)->[a]->Maybe int
+--findIndex p  = 
+        --maybe Nothing (Just . snd) .
